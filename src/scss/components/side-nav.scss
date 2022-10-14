@@ -1,0 +1,52 @@
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  padding-top: 39px;
+  max-width: 20%;
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    height: 40px;
+
+    svg:nth-of-type(1) {
+      margin-right: 10px;
+    }
+
+    span {
+      margin-right: 10px;
+      font-family: "Work Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #8b9abb;
+    }
+
+    &.highlight span {
+      color: #213f7d;
+    }
+
+    &.selected {
+      background: rgba(#39cdcc, 0.06);
+      border-left: 3px solid #39CDCC;
+
+      span {
+        color: #213f7d;
+      }
+    }
+  }
+
+  .nav-group-title {
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    padding-left: 30px;
+    color: #545f7d;
+    margin-top: 31px;
+    margin-bottom: 10px;
+  }
+}

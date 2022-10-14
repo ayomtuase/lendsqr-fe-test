@@ -1,0 +1,114 @@
+.top-nav {
+  position: sticky;
+  top: 0;
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    background: #ffffff;
+    box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+    padding-left: 30px;
+    padding-right: 66px;
+
+    &__logo {
+      position: absolute;
+    }
+
+    &__search {
+      display: flex;
+      width: 400px;
+      height: 40px;
+      background: #ffffff;
+      border-radius: 8px;
+      margin-left: 168px;
+
+      @media (max-width: 865px) {
+        display: none;
+      }
+
+      input {
+        width: 400px;
+        height: 40px;
+        background: #ffffff;
+        border: 1px solid rgba(84, 95, 125, 0.15);
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        padding-left: 20px;
+        font-family: "Work Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: #545f7d;
+
+        opacity: 0.7;
+
+        &:focus {
+          outline-width: 0;
+        }
+      }
+
+      &__icon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: #39cdcc;
+        width: 56px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+
+        svg {
+          height: 14px;
+          width: 14px;
+        }
+      }
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      &__docs-link {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        text-decoration-line: underline;
+        color: #213f7d;
+        margin-right: 50px;
+      }
+
+      @media (max-width: 865px) {
+        display: none;
+      }
+
+      svg {
+        margin-right: 10px;
+      }
+
+      svg.bell {
+        margin-right: 33px;
+      }
+    }
+
+    &__menu-icon {
+      display: inline;
+      position: absolute;
+      right: 10%;
+
+      height: 50px;
+
+      @media (min-width: 865px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.mobile-nav {
+  position: relative;
+}
