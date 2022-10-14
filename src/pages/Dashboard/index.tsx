@@ -24,7 +24,11 @@ const Dashboard = () => {
       {/* TopNav */}
       <div className="top-nav">
         <div className="top-nav__container">
-          <Logo height="30px" width="144px" className="top-nav__container__logo" />
+          <Logo
+            height="30px"
+            width="144px"
+            className="top-nav__container__logo"
+          />
           <div className="top-nav__container__search">
             <input type="text" placeholder="Search for anything" />
             <span className="top-nav__container__search__icon">
@@ -36,6 +40,7 @@ const Dashboard = () => {
             <span className="top-nav__container__actions__docs-link">Docs</span>
             <BellIcon className="bell" />
             <Avatar />
+            <span>Adedeji</span>
             <ChevronDownIcon />
           </div>
           <MenuIcon className="top-nav__container__menu-icon" />
@@ -45,8 +50,8 @@ const Dashboard = () => {
       {/* MobileNav */}
       <div></div>
 
-      {/* Sidenav */}
-      <div>
+      <div className="dashboard">
+        {/* Sidenav */}
         <div className="side-nav">
           <div className="nav-item highlight">
             <BriefcaseIcon />

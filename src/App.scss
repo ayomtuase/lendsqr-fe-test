@@ -1,8 +1,17 @@
-@use "scss/login-page.scss";
+@use "scss/pages/login-page.scss";
+@use "scss/pages/users.scss";
 @use "scss/components/password-input.scss";
 @use "scss/components/top-nav.scss";
 @use "scss/components/side-nav.scss";
 
+.dashboard {
+  display: flex;
+
+  & > .primary-view {
+    background-color: #fbfbfb;
+    flex-grow: 1;
+  }
+}
 
 * {
   box-sizing: border-box;
