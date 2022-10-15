@@ -4,6 +4,7 @@ import Users from "./pages/Dashboard/Users";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import SingleUser from "./pages/Dashboard/SingleUser";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,13 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 function App() {
   return (
-    <div>
+    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </div>
+    </QueryClientProvider>
   );
 }
 

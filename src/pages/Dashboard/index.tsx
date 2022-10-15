@@ -99,7 +99,7 @@ const Dashboard = () => {
               title: "Karma",
             },
           ].map((navItem) => (
-            <div className="nav-item" style={{ marginTop: "15px" }}>
+            <div key={navItem.title} className="nav-item" style={{ marginTop: "15px" }}>
               {navItem.icon}
               <span>{navItem.title}</span>
             </div>
