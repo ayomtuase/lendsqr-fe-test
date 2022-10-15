@@ -22,7 +22,7 @@
       height: 40px;
       background: #ffffff;
       border-radius: 8px;
-      margin-left: 168px;
+      margin-left: 20%;
 
       @media (max-width: 865px) {
         display: none;
@@ -71,15 +71,16 @@
       display: flex;
       align-items: center;
       margin-left: auto;
-      &__docs-link {
-        font-family: "Roboto";
+      
+      &__docs-link  {
+        font-family: "Roboto" !important;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 400 !important;
         font-size: 16px;
         line-height: 19px;
         text-decoration-line: underline;
         color: #213f7d;
-        margin-right: 50px;
+        margin-right: 50px !important;
       }
 
       @media (max-width: 865px) {

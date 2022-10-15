@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import Users from "./pages/Dashboard/Users";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
+import SingleUser from "./pages/Dashboard/SingleUser";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Users />,
+      },
+      {
+        path: "/dashboard/users/:id",
+        element: <SingleUser />,
       },
     ],
   },
