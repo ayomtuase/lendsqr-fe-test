@@ -100,14 +100,12 @@
       padding-left: 16px;
       padding-right: 16px;
 
-      font-family: "Avenir Next", sans-serif ;
+      font-family: "Avenir Next", sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
       line-height: 19px;
-      color: #545f7d;
-
-      opacity: 0.6;
+      color: rgba(#545f7d, 0.6);
 
       &:focus {
         border-color: #39cdcc;
@@ -146,5 +144,19 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
+  }
+
+  & > a {
+    text-decoration: none;
+    font-family: "Avenir Next", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #39cdcc;
+    margin-top: 15px;
+    text-align: center;
   }
 }

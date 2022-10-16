@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../assets/lendsqr-logo.svg";
 import loginImage from "../assets/login-image.svg";
 import PasswordInput from "../components/PasswordInput";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Logo className="logo" />
@@ -17,12 +20,16 @@ const Login = () => {
           <p>Enter details to login.</p>
           <form>
             <input type="email" placeholder="Email" />
-            <PasswordInput/>
+            <PasswordInput />
             <p>Forgot password?</p>
 
-            <button type="submit">LOG IN</button>
+            <button type="submit" onClick={() => navigate("/dashboard")}>
+              LOG IN
+            </button>
           </form>
+          <Link to="/dashboard">SEE DASHBOARD</Link>
         </div>
+        
       </div>
     </>
   );
