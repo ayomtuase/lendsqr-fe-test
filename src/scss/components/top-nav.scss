@@ -1,4 +1,5 @@
 .top-nav {
+  grid-area: top-nav;
   position: sticky;
   top: 0;
   z-index: 10000;
@@ -29,14 +30,14 @@
       }
 
       input {
-        width: 400px;
         height: 40px;
+        flex-grow: 1;
         background: #ffffff;
         border: 1px solid rgba(84, 95, 125, 0.15);
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
         padding-left: 20px;
-        font-family: "Work Sans";
+        font-family: "Work Sans", sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -73,7 +74,7 @@
       margin-left: auto;
 
       &__docs-link {
-        font-family: "Roboto" !important;
+        font-family: "Roboto", sans-serif !important;
         font-style: normal;
         font-weight: 400 !important;
         font-size: 16px;
@@ -89,7 +90,7 @@
 
       span {
         margin-right: 10px;
-        font-family: "Work Sans";
+        font-family: "Work Sans", sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
@@ -98,7 +99,7 @@
         color: #213f7d;
       }
 
-      svg {
+      svg, img {
         margin-right: 10px;
       }
 
@@ -111,7 +112,7 @@
       display: inline;
       position: absolute;
       right: 10%;
-
+      cursor: pointer;
       height: 50px;
 
       @media (min-width: 983px) {
@@ -119,8 +120,4 @@
       }
     }
   }
-}
-
-.mobile-nav {
-  position: relative;
 }

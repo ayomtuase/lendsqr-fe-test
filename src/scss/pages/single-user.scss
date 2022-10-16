@@ -8,7 +8,7 @@
 
     span {
       margin-left: 14px;
-      font-family: "Work Sans";
+      font-family: "Work Sans", sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
@@ -45,7 +45,7 @@
     }
 
     &__title {
-      font-family: "Work Sans";
+      font-family: "Work Sans", sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 24px;
@@ -61,7 +61,7 @@
       border: 1px solid #e4033b;
       border-radius: 8px;
       background: transparent;
-      font-family: "Work Sans";
+      font-family: "Work Sans", sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 14px;
@@ -79,7 +79,7 @@
       background: transparent;
       border: 1px solid #39cdcc;
       border-radius: 8px;
-      font-family: "Work Sans";
+      font-family: "Work Sans", sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 14px;
@@ -113,7 +113,7 @@
       padding-top: 15px;
       margin-left: auto;
       margin-right: auto;
-      max-width: 96vw;
+      max-width: 94vw;
     }
 
     &__info {
@@ -156,7 +156,7 @@
         }
 
         p {
-          font-family: "Work Sans";
+          font-family: "Work Sans", sans-serif;
           font-style: normal;
           font-weight: 500;
           font-size: 22px;
@@ -167,7 +167,7 @@
         }
 
         span {
-          font-family: "Work Sans";
+          font-family: "Work Sans", sans-serif;
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
@@ -192,7 +192,7 @@
         }
 
         span {
-          font-family: "Work Sans";
+          font-family: "Work Sans", sans-serif;
           font-style: normal;
           font-weight: 500;
           font-size: 14px;
@@ -213,7 +213,7 @@
         }
 
         span:first-child {
-          font-family: "Work Sans";
+          font-family: "Work Sans", sans-serif;
           font-style: normal;
           font-weight: 500;
           font-size: 22px;
@@ -223,7 +223,7 @@
         }
 
         span:last-child {
-          font-family: "Work Sans";
+          font-family: "Work Sans", sans-serif;
           font-style: normal;
           font-weight: 400;
           font-size: 12px;
@@ -242,7 +242,7 @@
 
       span {
         padding: 10px 25px;
-        font-family: "Work Sans";
+        font-family: "Work Sans", sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
@@ -252,7 +252,7 @@
       }
 
       span.highlight {
-        font-family: "Work Sans";
+        font-family: "Work Sans", sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
@@ -289,7 +289,7 @@
 
   &__details {
     &__title {
-      font-family: "Work Sans";
+      font-family: "Work Sans", sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
@@ -319,7 +319,7 @@
         flex-direction: column;
 
         span:first-child {
-          font-family: "Work Sans";
+          font-family: "Work Sans", sans-serif;
           font-style: normal;
           font-weight: 400;
           font-size: 12px;
@@ -330,7 +330,7 @@
         }
 
         span:last-child {
-          font-family: "Work Sans";
+          font-family: "Work Sans", sans-serif;
           font-style: normal;
           font-weight: 500;
           font-size: 16px;

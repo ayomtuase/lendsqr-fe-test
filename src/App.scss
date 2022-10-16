@@ -5,18 +5,34 @@
 @use "scss/components/side-nav.scss";
 @use "scss/pages/single-user.scss";
 @use "scss/components/loader.scss";
+@use "scss/components/mobile-nav.scss";
+
+* {
+  box-sizing: border-box;
+}
 
 .dashboard {
-  display: flex;
+  display: grid;
+  grid-template-columns: 17% auto;
+  grid-template-rows: 100px auto;
+  grid-template-areas: "top-nav top-nav" "side-nav primary-view";
+  position: relative;
+
+  @media (max-width: 982px) {
+    grid-template-columns: auto;
+    grid-template-rows: 100px auto;
+    grid-template-areas: "top-nav" "primary-view";
+  }
 
   & > .primary-view {
+    grid-area: primary-view;
     background-color: #fbfbfb;
     flex-grow: 1;
   }
 }
 
 .error-text {
-  font-family: "Work Sans";
+  font-family: "Work Sans", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -26,8 +42,4 @@
   color: #213f7d;
   text-align: center;
   margin: 40px auto;
-}
-
-* {
-  box-sizing: border-box;
 }

@@ -1,5 +1,5 @@
 .page-title {
-  font-family: "Work Sans";
+  font-family: "Work Sans", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -50,7 +50,7 @@
 
     p:nth-of-type(1) {
       margin-top: 14px;
-      font-family: "Work Sans";
+      font-family: "Work Sans", sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 14px;
@@ -61,7 +61,7 @@
 
     p:nth-of-type(2) {
       margin-top: 12px;
-      font-family: "Work Sans";
+      font-family: "Work Sans", sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 24px;
@@ -97,7 +97,7 @@
     width: 100%;
 
     & .table-heading {
-      font-family: "Work Sans";
+      font-family: "Work Sans", sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 12px;
@@ -147,7 +147,7 @@
       padding-left: 20px;
       padding-right: 20px;
       background: white;
-      font-family: "Work Sans";
+      font-family: "Work Sans", sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 14px;
@@ -155,7 +155,7 @@
       color: #545f7d;
 
       .form-label {
-        font-family: "Work Sans";
+        font-family: "Work Sans", sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
@@ -174,7 +174,7 @@
         margin-bottom: 20px;
 
         padding-left: 20px;
-        font-family: "Work Sans";
+        font-family: "Work Sans", sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -211,7 +211,7 @@
         }
 
         button:first-child {
-          font-family: "Work Sans";
+          font-family: "Work Sans", sans-serif;
           font-style: normal;
           font-weight: 600;
           font-size: 14px;
@@ -227,7 +227,7 @@
 
         button:last-child {
           background: #39cdcc;
-          font-family: "Work Sans";
+          font-family: "Work Sans", sans-serif;
           font-style: normal;
           font-weight: 600;
           font-size: 14px;
@@ -243,7 +243,7 @@
     }
 
     & .table-data {
-      font-family: "Work Sans";
+      font-family: "Work Sans", sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
@@ -309,7 +309,7 @@
 
         span {
           margin-left: 10px;
-          font-family: "Work Sans";
+          font-family: "Work Sans", sans-serif;
           font-style: normal;
           font-weight: 500;
           font-size: 14px;
@@ -329,7 +329,7 @@
   margin-right: 60px;
   margin-bottom: 60px;
 
-  font-family: "Work Sans";
+  font-family: "Work Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -347,16 +347,22 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 93vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & > * {
+      margin-bottom: 20px;
+    }
   }
 
-  .page-picker { 
-    
-    & > *{
+  .page-picker {
+    & > * {
       margin-left: 20px;
     }
 
-    span.highlight{
-      color: #545F7D;
+    span.highlight {
+      color: #545f7d;
     }
 
     button {
@@ -392,7 +398,7 @@
       top: -180px;
       * {
         margin-right: 20px;
-        font-family: "Work Sans";
+        font-family: "Work Sans", sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
@@ -413,7 +419,7 @@
 
       span {
         margin-right: 20px;
-        font-family: "Work Sans";
+        font-family: "Work Sans", sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
