@@ -88,7 +88,7 @@ const Dashboard = () => {
             },
             {
               icon: <LoanRequestsIcon />,
-              title: "LoanRequests",
+              title: "Loan Requests",
             },
             {
               icon: <WhitelistIcon />,
