@@ -68,7 +68,7 @@
   }
 
   & > h2 {
-    font-family: "Avenir Next", sans-serif;;
+    font-family: "Avenir Next", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
@@ -78,7 +78,7 @@
     margin-bottom: 10px;
   }
   & > p {
-    font-family: "Avenir Next", sans-serif;;
+    font-family: "Avenir Next", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -100,6 +100,15 @@
       padding-left: 16px;
       padding-right: 16px;
 
+      font-family: "Avenir Next", sans-serif ;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: #545f7d;
+
+      opacity: 0.6;
+
       &:focus {
         border-color: #39cdcc;
         outline-width: 0;
@@ -107,7 +116,7 @@
     }
 
     p {
-      font-family: "Avenir Next", sans-serif;;
+      font-family: "Avenir Next", sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 12px;
@@ -127,7 +136,7 @@
       color: white;
       margin-top: 30px;
 
-      font-family: "Avenir Next", sans-serif;;
+      font-family: "Avenir Next", sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 14px;
