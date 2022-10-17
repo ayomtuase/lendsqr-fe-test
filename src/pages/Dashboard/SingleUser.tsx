@@ -35,11 +35,11 @@ const SingleUser = () => {
 
   useEffect(() => {
     setUserDetail(
-      JSON.parse(localStorage.getItem(`user_detail_${id}`) ?? "{}")
+      JSON.parse(localStorage.getItem(`user_detail_${id}`) || "{}")
     );
     window.scrollTo(0, 0);
   }, [id]);
- 
+
   return (
     <div className="single-user">
       <span className="single-user__back" onClick={() => navigate(-1)}>
@@ -61,6 +61,11 @@ const SingleUser = () => {
       {isLoading && isFetching ? (
         <Loader />
       ) : isError ? (
+        <h2 className="error-text">
+          Unable to fetch data now, please check your network connection or try
+          again later
+        </h2>
+      ) : userDetail === undefined || Object.keys(userDetail).length === 0 ? (
         <h2 className="error-text">
           Unable to fetch data now, please check your network connection or try
           again later
@@ -111,6 +116,11 @@ const SingleUser = () => {
       {isLoading && isFetching ? (
         <Loader />
       ) : isError ? (
+        <h2 className="error-text">
+          Unable to fetch data now, please check your network connection or try
+          again later
+        </h2>
+      ) : userDetail === undefined || Object.keys(userDetail).length === 0 ? (
         <h2 className="error-text">
           Unable to fetch data now, please check your network connection or try
           again later

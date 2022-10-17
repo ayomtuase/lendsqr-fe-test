@@ -144,10 +144,6 @@ const Dashboard = () => {
               title: "Savings",
             },
             {
-              icon: <SavingsProductsIcon />,
-              title: "Savings Products",
-            },
-            {
               icon: <FeesAndChargesIcon />,
               title: "Fees and Charges",
             },
@@ -333,10 +329,6 @@ const Dashboard = () => {
             {
               icon: <SavingsIcon />,
               title: "Savings",
-            },
-            {
-              icon: <SavingsProductsIcon />,
-              title: "Savings Products",
             },
             {
               icon: <FeesAndChargesIcon />,
