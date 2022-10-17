@@ -42,7 +42,7 @@ const SingleUser = () => {
 
   return (
     <div className="single-user">
-      <span className="single-user__back" onClick={() => navigate(-1)}>
+      <span className="single-user__back" onClick={() => navigate("/dashboard")}>
         <BackIcon />
         <span>Back to Users</span>
       </span>
