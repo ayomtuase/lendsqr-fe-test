@@ -1,8 +1,37 @@
-# Getting Started with Create React App
+# Lendsqr Front-End Engineering Test
+
+## Project Description
+This project was completed as an assessment test for the role of Frontend Engineer at [Lendsqr](https://www.lendsqr.com/)
+
+The assessment's goal is to create the four screens in [this Figma design](https://www.figma.com/file/ZKILoCoIoy1IESdBpq3GNC/Frontend-Testing?node-id=6819%3A58317) and integrate with the following mock api endpoints
+
+* https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users
+
+* https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users:id
+
+## Technologies
+These technologies were used as per strict requirements of the test:
+* Typescript
+* React
+* SCSS
+
+Other technologies I used: 
+* Axios and React Query for asynchronous data fetching.
+* HeadlessUI for popovers and menu dropdowns. [link](https://headlessui.com/)
+
+
+## My Results
+
+* [Login page](https://ayomide-mofolorunso-oguntuase-lendsqr-fe-test.vercel.app)
+* [Dashboard and Users page](https://ayomide-mofolorunso-oguntuase-lendsqr-fe-test.vercel.app/dashboard)
+* [Individual Users page](https://ayomide-mofolorunso-oguntuase-lendsqr-fe-test.vercel.app/dashboard/users/1)
+
+
+## Other guides from React
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
