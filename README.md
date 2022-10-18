@@ -7,7 +7,7 @@ The assessment's goal is to create the four screens in [this Figma design](https
 
 * https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users
 
-* https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users:id
+* https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id
 
 ## Technologies
 These technologies were used as per strict requirements of the test:
