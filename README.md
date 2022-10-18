@@ -16,8 +16,15 @@ These technologies were used as per strict requirements of the test:
 * SCSS
 
 Other technologies I used: 
+* React Router for client-side navigation
 * Axios and React Query for asynchronous data fetching.
 * HeadlessUI for popovers and menu dropdowns. [link](https://headlessui.com/)
+
+File paths to important sections of code
+* [Login page](https://github.com/ayomtuase/lendsqr-fe-test/blob/master/src/pages/Login.tsx)
+* [Dashboard structure](https://github.com/ayomtuase/lendsqr-fe-test/blob/master/src/pages/Dashboard/index.tsx)
+* [Users page](https://github.com/ayomtuase/lendsqr-fe-test/blob/master/src/pages/Dashboard/Users.tsx)
+* [Single Users page](https://github.com/ayomtuase/lendsqr-fe-test/blob/master/src/pages/Dashboard/SingleUser.tsx)
 
 
 ## My Results
