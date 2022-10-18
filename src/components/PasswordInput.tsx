@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const PasswordInput = ({ placeholder = "Password" }) => {
+const PasswordInput = ({ placeholder = "Password", ...restProps }) => {
   const [isVisible, setVisible] = useState(false);
   const toggle = () => {
     setVisible(!isVisible);
@@ -11,6 +11,7 @@ const PasswordInput = ({ placeholder = "Password" }) => {
       <input
         type={!isVisible ? "password" : "text"}
         placeholder={placeholder}
+        {...restProps}
       />
       <span className="change-visibility" onClick={toggle}>
         {isVisible ? "HIDE" : "SHOW"}
