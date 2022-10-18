@@ -17,6 +17,7 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader";
 import { useNavigate } from "react-router-dom";
 import { UserDetail } from "../../types/user";
+import { formatDate } from "../../utils/formatDate";
 
 const dataPerPageOptions = [25, 50, 75, 100];
 
@@ -196,7 +197,7 @@ const Users = () => {
                   <td className="table-data">{user?.email}</td>
                   <td className="table-data">{user?.profile?.phoneNumber}</td>
                   <td className="table-data">
-                    {new Date(user?.createdAt).toUTCString()}
+                    {formatDate(user?.createdAt)}
                   </td>
                   <td className="table-data">
                     <span className="table-data__status__active">
