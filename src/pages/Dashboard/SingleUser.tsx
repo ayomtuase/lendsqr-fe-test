@@ -5,16 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { apiClient } from "../../utils/api";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
-import { UserDetail } from "../../types/user";
+import { useEffect } from "react";
 import formatCurrency from "../../utils/formatCurrency";
 import Loader from "../../components/Loader";
 
 const SingleUser = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-
-  const [userDetail, setUserDetail] = useState<UserDetail>();
 
   const { isLoading, isError, isFetching } = useQuery(
     ["users", id],
@@ -26,23 +23,24 @@ const SingleUser = () => {
       enabled: !localStorage.hasOwnProperty(`user_detail_${id}`),
       onSuccess: (data) => {
         localStorage.setItem(`user_detail_${id}`, JSON.stringify(data));
-        setUserDetail(
-          JSON.parse(localStorage.getItem(`user_detail_${id}`) ?? "{}")
-        );
       },
     }
   );
 
+  const userDetail = JSON.parse(
+    localStorage.getItem(`user_detail_${id}`) || "{}"
+  );
+
   useEffect(() => {
-    setUserDetail(
-      JSON.parse(localStorage.getItem(`user_detail_${id}`) || "{}")
-    );
     window.scrollTo(0, 0);
   }, [id]);
 
   return (
     <div className="single-user">
-      <span className="single-user__back" onClick={() => navigate("/dashboard")}>
+      <span
+        className="single-user__back"
+        onClick={() => navigate("/dashboard")}
+      >
         <BackIcon />
         <span>Back to Users</span>
       </span>

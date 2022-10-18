@@ -25,7 +25,7 @@
       border-radius: 8px;
       margin-left: 20%;
 
-      @media (max-width: 983px) {
+      @media (max-width: 1000px) {
         display: none;
       }
 
@@ -84,7 +84,7 @@
         margin-right: 50px !important;
       }
 
-      @media (max-width: 983px) {
+      @media (max-width: 1000px) {
         display: none;
       }
 
@@ -115,7 +115,7 @@
       cursor: pointer;
       height: 50px;
 
-      @media (min-width: 983px) {
+      @media (min-width: 1000px) {
         display: none;
       }
     }

@@ -89,7 +89,8 @@ const Users = () => {
                       {() => (
                         <>
                           <Popover.Button as="span">
-                            {heading} <FilterIcon />
+                            <span>{heading}</span>
+                            <FilterIcon />
                           </Popover.Button>
                           <Transition as={Fragment}>
                             <Popover.Panel className="popover-panel">
@@ -196,9 +197,7 @@ const Users = () => {
                   <td className="table-data">{user?.userName}</td>
                   <td className="table-data">{user?.email}</td>
                   <td className="table-data">{user?.profile?.phoneNumber}</td>
-                  <td className="table-data">
-                    {formatDate(user?.createdAt)}
-                  </td>
+                  <td className="table-data">{formatDate(user?.createdAt)}</td>
                   <td className="table-data">
                     <span className="table-data__status__active">
                       {"Active"}{" "}
