@@ -6,15 +6,19 @@ import Dashboard from "./pages/Dashboard";
 import SingleUser from "./pages/Dashboard/SingleUser";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Loader from "./components/Loader";
+import ErrorPage from "./pages/ErrorPage";
+import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/dashboard",
     element: <Dashboard />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -26,6 +30,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "*", element: <NotFound /> },
 ]);
 
 const queryClient = new QueryClient();
@@ -33,7 +38,7 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} fallbackElement={<Loader/>}/>
+      <RouterProvider router={router} fallbackElement={<Loader />} />
     </QueryClientProvider>
   );
 }
