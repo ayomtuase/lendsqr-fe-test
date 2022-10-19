@@ -8,8 +8,6 @@ import { ReactComponent as ChevronDownLineIcon } from "../../assets/chevron-down
 import { ReactComponent as ViewDetailsIcon } from "../../assets/eye.svg";
 import { ReactComponent as BlacklistUserIcon } from "../../assets/blacklist.svg";
 import { ReactComponent as ActivateUserIcon } from "../../assets/activate-user.svg";
-import { ReactComponent as ChevronLeftIcon } from "../../assets/chevron-left.svg";
-import { ReactComponent as ChevronRightIcon } from "../../assets/chevron-right.svg";
 import { apiClient } from "../../utils/api";
 import { Popover, Transition, Listbox, Menu } from "@headlessui/react";
 import { Fragment, useState } from "react";
@@ -18,25 +16,49 @@ import Loader from "../../components/Loader";
 import { useNavigate } from "react-router-dom";
 import { UserDetail } from "../../types/user";
 import { formatDate } from "../../utils/formatDate";
+import Pagination from "../../components/Pagination";
 
-const dataPerPageOptions = [25, 50, 75, 100];
+const pageSizes = [10, 25, 50, 75, 100];
 
 const Users = () => {
-  const [dataPerPageSelected, setDataPerPageSelected] = useState(
-    dataPerPageOptions[0]
-  );
+  const [pageSize, setPageSize] = useState(pageSizes[0]);
 
-  const navigate = useNavigate();
+  const [numberOfPages, setNumberOfPages] = useState<number>();
+
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const {
     isLoading,
     isError,
     data: users,
-  } = useQuery(["users"], () =>
-    apiClient.get("/users").then((res) => {
-      return res?.data;
-    })
+  } = useQuery(
+    ["users"],
+    () =>
+      apiClient.get("/users").then((res) => {
+        return res?.data;
+      }),
+    {
+      onSuccess: (data) => setNumberOfPages(Math.ceil(data.length / pageSize)),
+    }
   );
+
+  const changeNumberOfRowsPerPage = (noOfRows: number) => {
+    setPageSize(noOfRows);
+    setNumberOfPages(users.length / noOfRows);
+  };
+
+  const navigate = useNavigate();
+
+  const paginator = [];
+
+  if (numberOfPages !== undefined) {
+    console.log("number of Pages is", numberOfPages);
+    for (let i = 1; i < numberOfPages; i++) {
+      // note: we are adding a key prop here to allow react to uniquely identify each
+      // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
+      paginator.push(<span key={i}>{i}</span>);
+    }
+  }
 
   return (
     <>
@@ -182,73 +204,83 @@ const Users = () => {
               </tr>
             </thead>
             <tbody>
-              {users?.slice(0, dataPerPageSelected)?.map((user: UserDetail) => (
-                <tr
-                  key={user?.id}
-                  onClick={() => navigate(`/dashboard/users/${user?.id}`)}
-                  style={{ cursor: "pointer" }}
-                >
-                  <td
-                    className="table-data"
-                    style={{ textTransform: "capitalize" }}
+              {users
+                ?.slice(
+                  pageSize * (currentPage - 1),
+                  pageSize * currentPage + pageSize
+                )
+                ?.map((user: UserDetail) => (
+                  <tr
+                    key={user?.id}
+                    onClick={() => navigate(`/dashboard/users/${user?.id}`)}
+                    style={{ cursor: "pointer" }}
                   >
-                    {user?.orgName}
-                  </td>
-                  <td className="table-data">{user?.userName}</td>
-                  <td className="table-data">{user?.email}</td>
-                  <td className="table-data">{user?.profile?.phoneNumber}</td>
-                  <td className="table-data">{formatDate(user?.createdAt)}</td>
-                  <td className="table-data">
-                    <span className="table-data__status__active">
-                      {"Active"}{" "}
-                    </span>
-                  </td>
-                  <td
-                    className="table-data"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <>
-                      <Menu as="div" style={{ position: "relative" }}>
-                        <Menu.Button as="span" className="">
-                          <ThreeDotsIcon className="" aria-hidden="true" />
-                        </Menu.Button>
+                    <td
+                      className="table-data"
+                      style={{ textTransform: "capitalize" }}
+                    >
+                      {user?.orgName}
+                    </td>
+                    <td className="table-data">{user?.userName}</td>
+                    <td className="table-data">{user?.email}</td>
+                    <td className="table-data">{user?.profile?.phoneNumber}</td>
+                    <td className="table-data">
+                      {formatDate(user?.createdAt)}
+                    </td>
+                    <td className="table-data">
+                      <span className="table-data__status__active">
+                        {"Active"}{" "}
+                      </span>
+                    </td>
+                    <td
+                      className="table-data"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <>
+                        <Menu as="div" style={{ position: "relative" }}>
+                          <Menu.Button as="span" className="">
+                            <ThreeDotsIcon className="" aria-hidden="true" />
+                          </Menu.Button>
 
-                        <Transition as={Fragment}>
-                          <div>
-                            <Menu.Items as="div" className="dropdown-container">
-                              <>
-                                <Menu.Item>
-                                  <button
-                                    className="dropdown-button"
-                                    onClick={() =>
-                                      navigate(`/dashboard/users/${user?.id}`)
-                                    }
-                                  >
-                                    <ViewDetailsIcon />
-                                    <span>View Details</span>
-                                  </button>
-                                </Menu.Item>
-                                <Menu.Item>
-                                  <button className="dropdown-button">
-                                    <BlacklistUserIcon />
-                                    <span>Blacklist User</span>
-                                  </button>
-                                </Menu.Item>
-                                <Menu.Item>
-                                  <button className="dropdown-button">
-                                    <ActivateUserIcon />
-                                    <span>Activate User</span>
-                                  </button>
-                                </Menu.Item>
-                              </>
-                            </Menu.Items>
-                          </div>
-                        </Transition>
-                      </Menu>
-                    </>
-                  </td>
-                </tr>
-              ))}
+                          <Transition as={Fragment}>
+                            <div>
+                              <Menu.Items
+                                as="div"
+                                className="dropdown-container"
+                              >
+                                <>
+                                  <Menu.Item>
+                                    <button
+                                      className="dropdown-button"
+                                      onClick={() =>
+                                        navigate(`/dashboard/users/${user?.id}`)
+                                      }
+                                    >
+                                      <ViewDetailsIcon />
+                                      <span>View Details</span>
+                                    </button>
+                                  </Menu.Item>
+                                  <Menu.Item>
+                                    <button className="dropdown-button">
+                                      <BlacklistUserIcon />
+                                      <span>Blacklist User</span>
+                                    </button>
+                                  </Menu.Item>
+                                  <Menu.Item>
+                                    <button className="dropdown-button">
+                                      <ActivateUserIcon />
+                                      <span>Activate User</span>
+                                    </button>
+                                  </Menu.Item>
+                                </>
+                              </Menu.Items>
+                            </div>
+                          </Transition>
+                        </Menu>
+                      </>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         )}
@@ -257,13 +289,10 @@ const Users = () => {
       <div className="pagination-container">
         <span>
           Showing{" "}
-          <Listbox
-            value={dataPerPageSelected}
-            onChange={setDataPerPageSelected}
-          >
+          <Listbox value={pageSize} onChange={changeNumberOfRowsPerPage}>
             <div className="per-page-picker-container">
               <Listbox.Button className="per-page-picker-button">
-                <span className="">{dataPerPageSelected}</span>
+                <span className="">{pageSize}</span>
                 <ChevronDownLineIcon />
               </Listbox.Button>
               <Transition
@@ -273,7 +302,7 @@ const Users = () => {
                 leaveTo="opacity-0"
               >
                 <Listbox.Options className="per-page-options">
-                  {dataPerPageOptions.map((perPage) => (
+                  {pageSizes.map((perPage) => (
                     <Listbox.Option key={perPage} className="" value={perPage}>
                       {() => (
                         <>
@@ -289,20 +318,12 @@ const Users = () => {
           out of 100
         </span>
 
-        <span className="page-picker">
-          <button>
-            <ChevronLeftIcon />
-          </button>
-          <span className="highlight">1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>...</span>
-          <span>15</span>
-          <span>16</span>
-          <button>
-            <ChevronRightIcon />
-          </button>
-        </span>
+        <Pagination
+          onPageChange={setCurrentPage}
+          totalCount={users?.length}
+          currentPage={currentPage}
+          pageSize={pageSize}
+        />
       </div>
     </>
   );
