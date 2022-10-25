@@ -15,7 +15,7 @@ const Dashboard = () => {
       />
 
       <div className="dashboard">
-        <TopBar setShowMobileNav={setShowMobileNav} />
+        <TopBar showMobileNav={showMobileNav} setShowMobileNav={setShowMobileNav} />
 
         {/* Sidenav */}
         <SideNav />

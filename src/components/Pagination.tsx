@@ -1,10 +1,10 @@
-import React, { SetStateAction } from "react";
+import React from "react";
 import { usePagination, DOTS } from "../hooks/usePagination";
 import { ReactComponent as ChevronLeftIcon } from "../assets/chevron-left.svg";
 import { ReactComponent as ChevronRightIcon } from "../assets/chevron-right.svg";
 
 interface PaginationProps {
-  onPageChange: React.Dispatch<SetStateAction<number>>;
+  onPageChange: (page: number) => void;
   totalCount: number;
   siblingCount?: number;
   currentPage: number;
@@ -31,7 +31,7 @@ const Pagination = (props: PaginationProps) => {
     return null;
   }
 
-  console.log("this is pagination range", paginationRange)
+  console.log("this is pagination range", paginationRange);
 
   let lastPage = paginationRange[paginationRange.length - 1];
 
@@ -53,6 +53,7 @@ const Pagination = (props: PaginationProps) => {
       {/* Left navigation arrow */}
       <button
         onClick={onPrevious}
+        disabled={currentPage === 1}
         className={`${currentPage === 1 ? "disabled" : ""}`}
       >
         <ChevronLeftIcon />
@@ -70,13 +71,14 @@ const Pagination = (props: PaginationProps) => {
             className={`${pageNumber === currentPage ? "highlight" : ""}`}
             onClick={() => onPageChange(pageNumber)}
           >
-            {pageNumber} 
+            {pageNumber}
           </span>
         );
       })}
       {/*  Right Navigation arrow */}
       <button
         onClick={onNext}
+        disabled={currentPage === lastPage}
         className={`${currentPage === lastPage ? "disabled" : ""}`}
       >
         <ChevronRightIcon />

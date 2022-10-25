@@ -40,7 +40,7 @@ const MobileNav = ({ showMobileNav, setShowMobileNav }: MobileNavProps) => {
   return (
     <div
       className="mobile-nav"
-      style={{ display: showMobileNav ? "flex" : "none" }}
+      style={{ right: showMobileNav ? "0" : "-320px" }}
     >
       <img
         src={closeIcon}

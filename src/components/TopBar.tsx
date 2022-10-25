@@ -8,7 +8,9 @@ import { ReactComponent as MenuIcon } from "../assets/menu.svg";
 
 const TopBar = ({
   setShowMobileNav,
+  showMobileNav,
 }: {
+  showMobileNav: boolean;
   setShowMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
@@ -41,6 +43,11 @@ const TopBar = ({
           className="top-nav__container__menu-icon"
           onClick={() => setShowMobileNav(true)}
         />
+        <div
+          className="mobile-nav-shadow"
+          onClick={() => setShowMobileNav(false)}
+          style={{ display: showMobileNav ? "block" : "none" }}
+        ></div>
       </div>
     </div>
   );

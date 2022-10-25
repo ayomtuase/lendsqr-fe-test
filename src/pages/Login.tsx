@@ -12,8 +12,6 @@ const Login = () => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("formState is", formState);
-    console.log("errorState is before manipulations", errorState);
     if (formState.email === "") {
       setErrorState((errorState) => {
         return { ...errorState, email: "Email is required" };
@@ -33,7 +31,6 @@ const Login = () => {
       });
     }
     if (Object.values(formState).some((data) => data === "")) {
-      console.log("ONe of the form input is likely empty");
       return;
     }
 

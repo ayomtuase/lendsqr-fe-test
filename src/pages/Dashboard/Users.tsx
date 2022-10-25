@@ -10,7 +10,7 @@ import { ReactComponent as BlacklistUserIcon } from "../../assets/blacklist.svg"
 import { ReactComponent as ActivateUserIcon } from "../../assets/activate-user.svg";
 import { apiClient } from "../../utils/api";
 import { Popover, Transition, Listbox, Menu } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader";
 import { useNavigate } from "react-router-dom";
@@ -23,42 +23,27 @@ const pageSizes = [10, 25, 50, 75, 100];
 const Users = () => {
   const [pageSize, setPageSize] = useState(pageSizes[0]);
 
-  const [numberOfPages, setNumberOfPages] = useState<number>();
-
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const {
     isLoading,
     isError,
     data: users,
-  } = useQuery(
-    ["users"],
-    () =>
-      apiClient.get("/users").then((res) => {
-        return res?.data;
-      }),
-    {
-      onSuccess: (data) => setNumberOfPages(Math.ceil(data.length / pageSize)),
-    }
+  } = useQuery(["users"], () =>
+    apiClient.get("/users").then((res) => {
+      return res?.data;
+    })
   );
-
-  const changeNumberOfRowsPerPage = (noOfRows: number) => {
-    setPageSize(noOfRows);
-    setNumberOfPages(users.length / noOfRows);
-  };
 
   const navigate = useNavigate();
 
-  const paginator = [];
-
-  if (numberOfPages !== undefined) {
-    console.log("number of Pages is", numberOfPages);
-    for (let i = 1; i < numberOfPages; i++) {
-      // note: we are adding a key prop here to allow react to uniquely identify each
-      // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
-      paginator.push(<span key={i}>{i}</span>);
+  const onPageChange = useCallback((page: number) => {
+    setCurrentPage(page);
+    const primaryView = document.querySelector(".primary-view");
+    if (primaryView !== null) {
+      window.scrollTo(0, primaryView.scrollHeight);
     }
-  }
+  }, []);
 
   return (
     <>
@@ -289,7 +274,7 @@ const Users = () => {
       <div className="pagination-container">
         <span>
           Showing{" "}
-          <Listbox value={pageSize} onChange={changeNumberOfRowsPerPage}>
+          <Listbox value={pageSize} onChange={setPageSize}>
             <div className="per-page-picker-container">
               <Listbox.Button className="per-page-picker-button">
                 <span className="">{pageSize}</span>
@@ -319,7 +304,7 @@ const Users = () => {
         </span>
 
         <Pagination
-          onPageChange={setCurrentPage}
+          onPageChange={onPageChange}
           totalCount={users?.length}
           currentPage={currentPage}
           pageSize={pageSize}
