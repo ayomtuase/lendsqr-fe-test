@@ -1,6 +1,8 @@
 .mobile-nav {
   position: fixed;
-  right: -315px;
+  right: 0;
+  transform: translateX(315px);
+  will-change: transform;
   height: 100vh;
   overflow-y: auto;
   background: white;
